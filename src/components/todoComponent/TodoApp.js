@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Button, InputLabel, TextField, Card } from '@material-ui/core';
+import { Button, InputLabel, TextField} from '@material-ui/core';
 import {TodoList} from "./TodoList";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -20,7 +20,7 @@ export class TodoApp extends Component {
         
         return (
 
-            <div className="App">
+            <div className="App" onSubmit={this.handleSubmit}>
                 <form onSubmit={this.handleSubmit} className="todo-form">
                     <h3>New TODO</h3>
                     <InputLabel htmlFor="text" className="right-margin">
@@ -55,7 +55,8 @@ export class TodoApp extends Component {
                         onChange={this.handleDateChange}>
                     </DatePicker>
                     <br/>
-                    <Button>
+                    <br/>
+                    <Button variant="contained" type="submit">
                         Add #{this.state.items.length + 1}
                     </Button>
                 </form>
